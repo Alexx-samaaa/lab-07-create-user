@@ -1,12 +1,17 @@
-
 <?php
 include 'initialize.php';
 
-$alertMessage = $_SESSION['alert_message'] ?? '';
-$alertType = $_SESSION['alert_type'] ?? '';
+$alertMessages = [
+    'fields' => 'Please complete all fields.',
+    'mismatch' => 'Passwords do not match.',
+    'exists' => 'Username already exists.',
+    'failed' => 'Failed to create user.'
+];
 
-unset($_SESSION['alert_message']);
-unset($_SESSION['alert_type']);
+$errorCode = $_GET['error'] ?? '';
+
+$alertMessage = $alertMessages[$errorCode] ?? '';
+$alertType = $alertMessage ? 'error' : '';
 ?>
 
 <!DOCTYPE html>
