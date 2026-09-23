@@ -1,5 +1,10 @@
 <?php
-session_start();
+
+ob_start();
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 $envFile = __DIR__ . '/.env';
 
