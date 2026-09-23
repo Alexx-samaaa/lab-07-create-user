@@ -27,5 +27,3 @@ $connection = pg_connect($connectionString);
 if (!$connection) {
     die("Database connection failed.");
 }
-?>
-
